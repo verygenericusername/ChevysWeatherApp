@@ -11,7 +11,7 @@ body {
   padding:20px;
 }
 .box {
-  width:345px;
+  width:350px;
   height:100px;
   background-color:white;
   border-radius:20px;
@@ -115,6 +115,7 @@ img {
 </div>
 </body>
 <h2 class="slogan">OpenWeatherMap API</h2>
+<h2 class="slogan">&#169; Chevy's Weather App, 2023.</h2>
 <script>
 var box = document.getElementById("box");
 var search = document.getElementById("search");
@@ -154,22 +155,13 @@ search.addEventListener("click", function(){
             description.innerHTML = "(" + json.weather[0].description + ")";
             img.style.top = oldPos1 + "px";
             img.src = `https://openweathermap.org/img/w/${json.weather[0].icon}.png`;
-            wind.innerHTML = "Wind: " + parseInt(json.wind.speed) + " " + "MPH";
-            humidity.innerHTML = "Humidity: " + json.main.humidity + "%";
-            temp.innerHTML = parseInt(json.main.temp) + "&degF";
+            wind.innerHTML = "Wind: " + parseInt(json.wind.speed) + " " + "MPH" + " " + "(" + parseInt(json.wind.deg) + " Degrees" + ")";
+            humidity.innerHTML = "Humidity: " + json.main.humidity + "%" + " " + "(" + "Pressure: " + json.main.pressure + ")";
+            temp.innerHTML = parseInt(json.main.temp) + "&degF" + " " + "(" + "Feels Like: " + parseInt(json.main.feels_like) + "&degF |" + " " + "Min: " + parseInt(json.main.temp_min) + " " + "Max: " + parseInt(json.main.temp_max) + ")";
           },400);
         }
       }
     });
 });
 </script>
-
-  <script type="text/javascript">
-    	
-  </script>
-
-  <style type="text/css">
-    	
-  </style>
-</body>
 </html>
