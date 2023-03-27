@@ -157,7 +157,7 @@ search.addEventListener("click", function(){
             img.src = `https://openweathermap.org/img/w/${json.weather[0].icon}.png`;
             wind.innerHTML = "Wind: " + parseInt(json.wind.speed) + " " + "MPH" + " " + "(" + parseInt(json.wind.deg) + " Degrees" + ")";
             humidity.innerHTML = "Humidity: " + json.main.humidity + "%" + " " + "(" + "Pressure: " + json.main.pressure + ")";
-            temp.innerHTML = parseInt(json.main.temp) + "&degF" + " " + "(" + "Feels Like: " + parseInt(json.main.feels_like) + "&degF |" + " " + "Min: " + parseInt(json.main.temp_min) + " " + "Max: " + parseInt(json.main.temp_max) + ")";
+            temp.innerHTML = parseInt(json.main.temp) + "&degF" + " " + "(" + "Feels Like: " + parseInt(json.main.feels_like) + "&degF |" + " " + "Min: " + parseInt(json.main.temp_min) + "&degF" + " " + "Max: " + parseInt(json.main.temp_max) + "&degF" +  ")";
           },400);
         }
       }
