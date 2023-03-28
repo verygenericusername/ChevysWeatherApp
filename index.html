@@ -126,8 +126,8 @@ var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
 var img = document.getElementById("img");
 var temp = document.getElementById("temp");
-search.addEventListener("click", function(){
-  var APIKey = '2de58e2754fe7724e5de908e66b1cbc1';
+function weather(){
+ var APIKey = '2de58e2754fe7724e5de908e66b1cbc1';
   var city = document.getElementById("city").value;
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`)
     .then(response => response.json())
@@ -150,6 +150,10 @@ search.addEventListener("click", function(){
         if(!parseInt(box.style.height) === 400){
           return;
         }else{
+        if(city === ''){
+        return;
+        
+        }else{
           setTimeout(function(){
           weathertype.style.top = oldPos2 + "px";
             weathertype.innerHTML = json.weather[0].main;
@@ -161,8 +165,17 @@ search.addEventListener("click", function(){
             temp.innerHTML = parseInt(json.main.temp) + "&degF" + " " + "(" + "Feels Like: " + parseInt(json.main.feels_like) + "&degF |" + " " + "Min: " + parseInt(json.main.temp_min) + "&degF" + " " + "Max: " + parseInt(json.main.temp_max) + "&degF" +  ")";
           },400);
         }
+        }
       }
     });
+}
+search.addEventListener("click", function(){
+ weather();
+});
+document.addEventListener("keydown", function(e){
+if(e.key === "Enter"){
+weather();
+}
 });
 </script>
 </html>
